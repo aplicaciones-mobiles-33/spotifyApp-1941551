@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-reproductor',
@@ -6,8 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reproductor.component.scss'],
 })
 export class ReproductorComponent implements OnInit {
-
-  constructor() { }
+  constructor(private RutaActiva: ActivatedRoute) { }
 
   ngOnInit() {}
 

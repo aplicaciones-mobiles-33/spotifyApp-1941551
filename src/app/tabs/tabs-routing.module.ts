@@ -23,6 +23,10 @@ const routes: Routes = [
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'
+      },
+      {
+        path: 'reproductor', //reproductor:/id
+        loadChildren: () => import('../reproductor/reproductor.module').then(m =>m.ReproductorComponentModule)
       }
     ]
   },

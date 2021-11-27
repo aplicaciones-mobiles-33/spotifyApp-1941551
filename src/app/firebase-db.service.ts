@@ -1,3 +1,4 @@
+/* eslint-disable guard-for-in */
 /* eslint-disable @typescript-eslint/member-ordering */
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -19,10 +20,13 @@ export class FirebaseDbService {
   resArray = [];
 
   obtenerCancion(){
-    this.http.get('https://spotifyapp-d0f16-default-rtdb.firebaseio.com/Canciones.json').subscribe(
-      respuesta => {
-        console.log(respuesta);
-      }
+    return this.http.get('https://spotifyapp-d0f16-default-rtdb.firebaseio.com/Canciones.json')
+    .pipe(
+      map(res => {
+        for(const key in res){
+          this.resArray.push( { ...res[key], key});
+        }return this.resArray;
+      })
     );
   }
 }

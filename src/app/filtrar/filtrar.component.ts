@@ -15,6 +15,19 @@ export class FiltrarComponent implements OnInit {
 
   canciones = [];
 
-  ngOnInit() {}
+  artista: any[];
+  nombre: any[];
 
+  getCanciones(): void {
+    this.db.obtenerCancion().subscribe(
+      res => {
+
+        this.canciones = res;
+      }
+    );
+  }
+
+  ngOnInit() {
+    this.getCanciones();
+  }
 }

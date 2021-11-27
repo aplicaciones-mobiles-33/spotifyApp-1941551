@@ -14,13 +14,16 @@
     </ion-row>
   </ion-grid>
 
-
-  <div class="card">
-    <div class="card-body">
-      This is some text within a card body.
+<a [routerLink]= "['/tabs/reproductor']">
+  <div *ngFor = "let cancion of canciones">
+    <div class="card">
+      <div class="card-body">
+        {{cancion.artista}}, {{cancion.nombre}}
+      </div>
     </div>
-  </div>
 
+  </div>
+</a>
 
 </ion-content>
 
